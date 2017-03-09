@@ -1,14 +1,35 @@
-///scr_move_state
+    ///scr_move_state
 scr_get_input();
 
 // Get direction
 dir = point_direction(0, 0, xaxis, yaxis);
 
-// Get length
 if (xaxis == 0 && yaxis == 0) {
+    //Not moving
     len = 0;
+    image_speed = 0;
+    image_index = 1;
 } else {
+    //Moving
     len = spd;
+    
+    //control sprite
+    image_speed = walk_anim_speed;
+    scr_get_face();
+    switch(face) {
+        case RIGHT:
+            sprite_index = spr_toga_walk_right;
+            break;
+        case LEFT:
+            sprite_index = spr_toga_walk_left;
+            break;
+        case DOWN:
+            sprite_index = spr_toga_walk_down;
+            break;
+        case UP:
+            sprite_index = spr_toga_walk_up;
+            break;
+    }  
 }
 
 // Get hspd and vspd
@@ -19,22 +40,16 @@ vspd = lengthdir_y(len, dir);
 phy_position_x += hspd;
 phy_position_y += vspd;
 
-// Control the sprite
-image_speed = sign(len) * walk_anim_speed;
-if (len == 0) {
-    image_index = 1;
+// Handle dash
+if (dash_key && obj_player_stats.stamina >= DASH_COST) {
+    state = scr_dash_state;
+    alarm[0] = room_speed / 6;
+    obj_player_stats.stamina -= DASH_COST;
+    obj_player_stats.alarm[0] = room_speed;
 }
 
-// vertical sprites
-if (vspd > 0) {
-    sprite_index = spr_player_walk_down;
-} else if (vspd < 0) {
-    sprite_index = spr_player_walk_up;
-}
-
-// horizontal sprites
-if (hspd > 0) {
-    sprite_index = spr_player_walk_right;
-} else if (hspd < 0) {
-    sprite_index = spr_player_walk_left;
+// Handle attack
+if (attack_key) {
+    image_index = 0;
+    state = scr_attack_state;
 }
