@@ -25,17 +25,22 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Initialize lifeform
-phy_fixed_rotation = true;
-hp = 3;
-expr_value = 1;
+            <string>///Initialize the pause menu
+title = "Game Paused";
 
+option[0] = "Return";
+option[1] = "Save";
+option[2] = "Load";
+option[3] = "Quit";
+
+//Menu index
+menu_index = 0;
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="1" enumb="0">
+    <event eventtype="2" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -52,11 +57,7 @@ expr_value = 1;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Lifeform death
-if (object_exists(obj_player_stats)) {
-    obj_player_stats.expr += expr_value;
-}
-instance_create(x, y, obj_corpse);
+            <string>///Menu alarm
 </string>
           </argument>
         </arguments>
@@ -73,24 +74,37 @@ instance_create(x, y, obj_corpse);
         <exetype>2</exetype>
         <functionname></functionname>
         <codestring></codestring>
-        <whoName>other</whoName>
+        <whoName>self</whoName>
         <relative>0</relative>
         <isnot>0</isnot>
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Set depth based on y position
-depth = -y;
-
-if (hp &lt;= 0) {
-    instance_destroy();
+            <string>///Control the menu
+if (alarm[0] &lt;= 0) {
+    if (obj_input.down_key) {
+        if (menu_index &lt; array_length_1d(option) - 1) {
+            ++menu_index;
+        } else {
+            menu_index = 0;
+        }
+        alarm[0] = room_speed / 6;
+    }
+    if (obj_input.up_key) {
+        if (menu_index &gt; 0) {
+            --menu_index;
+        } else {
+            menu_index = array_length_1d(option) - 1;
+        }
+        alarm[0] = room_speed / 6;
+    }
 }
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="4" ename="obj_speaker">
+    <event eventtype="8" enumb="64">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -107,53 +121,22 @@ if (hp &lt;= 0) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Collide
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="4" ename="obj_lifeform_parent">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// Collide
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="4" ename="obj_wall">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// Collide
+            <string>///Draw the menu
+var xx = display_get_gui_width() / 2;
+var yy = display_get_gui_height() / 2;
+draw_set_halign(fa_center);
+draw_text(xx, yy - 64, title);
+
+for (var i = 0; i &lt; array_length_1d(option); i++) {
+    draw_set_color(c_gray);
+    if (i == menu_index) {
+        draw_set_color(c_white);
+    }
+    draw_text(xx, yy + (i * 32), option[i]);
+}
+
+draw_set_color(c_white);
+draw_set_halign(fa_left);
 </string>
           </argument>
         </arguments>

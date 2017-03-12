@@ -33,6 +33,7 @@ max_stamina = stamina;
 level = 1;
 expr = 0;
 expr_to_next = 3;
+attack = 1;
 </string>
           </argument>
         </arguments>
@@ -92,6 +93,7 @@ if (expr &gt;= expr_to_next) {
     hp = max_hp;
     max_stamina += 3;
     stamina = max_stamina;   
+    attack += 1;
 }
 
 // regen stamina

@@ -24,7 +24,7 @@ if (image_index >= 1 && attacked == false) {
     var dam_y = y;
     switch (sprite_index) {
         case spr_toga_attack_down:
-            dam_y += 8;
+            dam_y += 16;
             break;
             
         case spr_toga_attack_up:
@@ -41,5 +41,6 @@ if (image_index >= 1 && attacked == false) {
     }
     var damage = instance_create(dam_x, dam_y, obj_damage);
     damage.creator = id;
+    damage.damage = obj_player_stats.attack;
     attacked = true;
 }
