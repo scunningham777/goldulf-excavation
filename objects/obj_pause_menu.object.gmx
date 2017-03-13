@@ -122,17 +122,36 @@ if (alarm[0] &lt;= 0) {
           <argument>
             <kind>1</kind>
             <string>///Draw the menu
+
+//Draw background sprite
+if (instance_exists(obj_input)) {
+    draw_sprite_ext(obj_input.pause_screenshot, 0, 0, 0, 1, 1, 0, c_white, .4);
+}
+
+//Draw menu setup
 var xx = display_get_gui_width() / 2;
 var yy = display_get_gui_height() / 2;
+
+//Draw backdrop
+var bg_x_offset = xx / 2;
+var bg_y_offset = yy / 2;
+var bg_width = xx;
+var bg_height = yy;
+draw_set_alpha(.4);
+draw_rectangle_colour(bg_x_offset, bg_y_offset, bg_x_offset + bg_width, bg_y_offset + bg_height, c_black, c_black, c_black, c_black, false);
+draw_set_alpha(1);
+
+
+//Draw actual menu
 draw_set_halign(fa_center);
-draw_text(xx, yy - 64, title);
+draw_text(xx, bg_y_offset + 32, title);
 
 for (var i = 0; i &lt; array_length_1d(option); i++) {
     draw_set_color(c_gray);
     if (i == menu_index) {
         draw_set_color(c_white);
     }
-    draw_text(xx, yy + (i * 32), option[i]);
+    draw_text(xx, bg_y_offset + 96 + (i * 32), option[i]);
 }
 
 draw_set_color(c_white);

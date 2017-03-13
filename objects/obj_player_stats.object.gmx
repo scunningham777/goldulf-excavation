@@ -123,9 +123,19 @@ if (stamina &lt; max_stamina &amp;&amp; alarm[0] == -1) {
           <argument>
             <kind>1</kind>
             <string>///Draw the stats
+// only draw background if not paused
+if (room != rm_pause) {
+    draw_set_alpha(.4);
+    draw_rectangle_colour(0, 0, 192, 80, c_black, c_black, c_black, c_black, false);
+    draw_set_alpha(1);
+}
+
+draw_set_color(c_white);
 draw_text(32, 16, "HP: " + string(hp) + "/" + string(max_hp));
 draw_text(32, 32, "STAMINA: " + string(stamina) + "/" + string(max_stamina));
 draw_text(32, 48, "LEVEL: " + string(level));
+
+
 </string>
           </argument>
         </arguments>

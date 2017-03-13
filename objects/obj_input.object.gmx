@@ -28,6 +28,7 @@
             <string>/// Initialize the input object
 scr_get_input();
 previous_room = room;
+pause_screenshot = noone;
 </string>
           </argument>
         </arguments>
@@ -56,10 +57,18 @@ scr_get_input();
 // Pause the game
 if (pause_key) {
     if (room != rm_pause) {
+        // hide the hero
         if (instance_exists(obj_player)) {
             obj_player.persistent = false;
-        }    
+        }
+        
+        // stash previous room &amp; screenshot it    
         previous_room = room;
+        var width = surface_get_width(application_surface);
+        var height = surface_get_height(application_surface);
+        pause_screenshot = sprite_create_from_surface(application_surface, 0, 0, width, height, false, false, 0, 0);
+        
+        // Show pause menu
         room_goto(rm_pause);
     } else {
         room_goto(previous_room);
@@ -87,9 +96,16 @@ if (pause_key) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Persist character
+            <string>/// Room change cleanup
+//Persist character
 if (instance_exists(obj_player)) {
     obj_player.persistent = true;
+}
+
+// remove pause screenshot sprite
+if (room != rm_pause &amp;&amp; pause_screenshot != noone) {
+    sprite_delete(pause_screenshot);
+    pause_screenshot = noone;
 }
 
 </string>
