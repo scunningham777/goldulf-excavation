@@ -26,6 +26,10 @@
           <argument>
             <kind>1</kind>
             <string>///Init
+//band-aid duplicate hero bug
+if (instance_number(obj_player) &gt; 1) {
+    instance_destroy();
+}
 event_inherited();
 expr_value = 0;
 spd = 3;
@@ -38,8 +42,29 @@ dir = 90;
 walk_anim_speed = 0.15;
 state = scr_move_state;
 image_speed = 0;
-attacked = false;
 face = DOWN;
+movement = MOVE;
+
+//Create Weapon offset array
+weapon_offset['x', UP] = 6;
+weapon_offset['x', RIGHT] = 0;
+weapon_offset['x', LEFT] = 0;
+weapon_offset['x', DOWN] = -6;
+weapon_offset['y', UP] = -4;
+weapon_offset['y', RIGHT] = 0;
+weapon_offset['y', LEFT] = 0;
+weapon_offset['y', DOWN] = 0;
+
+//Create the sprite array
+sprite[RIGHT, MOVE] = spr_toga_walk_right;
+sprite[UP, MOVE] = spr_toga_walk_up;
+sprite[LEFT, MOVE] = spr_toga_walk_left;
+sprite[DOWN, MOVE] = spr_toga_walk_down;
+
+sprite[RIGHT, ATTACK] = spr_toga_walk_right;
+sprite[UP, ATTACK] = spr_toga_walk_up;
+sprite[LEFT, ATTACK] = spr_toga_walk_left;
+sprite[DOWN, ATTACK] = spr_toga_walk_down;
 </string>
           </argument>
         </arguments>
@@ -88,13 +113,18 @@ state = scr_move_state;
             <kind>1</kind>
             <string>///Move player
 depth = -y;
-if (hp &gt; 0) {
-    script_execute(state);
+script_execute(state);
+
+//set sprite
+sprite_index = sprite[face, movement];
+
+//check for death
+if (obj_player_stats.hp &lt;= 0) {
+    instance_destroy();
 }
 
-if (obj_player_stats.hp &lt;= 0) {
-    state = scr_dead_state;
-}
+
+
 </string>
           </argument>
         </arguments>
@@ -121,6 +151,8 @@ if (obj_player_stats.hp &lt;= 0) {
 with (other) {
     instance_destroy();
 }
+
+audio_play_sound(snd_pickup, 6, false);
 
 with (obj_player_stats) {
     hp = min(hp + 5, max_hp);
@@ -223,6 +255,7 @@ if (state == scr_attack_state) {
             <kind>1</kind>
             <string>///New physics fixture on room start
 phy_fixed_rotation = true;
+persistent = true;
 </string>
           </argument>
         </arguments>
@@ -231,7 +264,7 @@ phy_fixed_rotation = true;
   </events>
   <PhysicsObject>-1</PhysicsObject>
   <PhysicsObjectSensor>0</PhysicsObjectSensor>
-  <PhysicsObjectShape>2</PhysicsObjectShape>
+  <PhysicsObjectShape>1</PhysicsObjectShape>
   <PhysicsObjectDensity>0.5</PhysicsObjectDensity>
   <PhysicsObjectRestitution>0.100000001490116</PhysicsObjectRestitution>
   <PhysicsObjectGroup>0</PhysicsObjectGroup>
@@ -242,8 +275,8 @@ phy_fixed_rotation = true;
   <PhysicsObjectKinematic>0</PhysicsObjectKinematic>
   <PhysicsShapePoints>
     <point>10,16</point>
-    <point>24,16</point>
+    <point>22,16</point>
     <point>22,32</point>
-    <point>12,32</point>
+    <point>10,32</point>
   </PhysicsShapePoints>
 </object>

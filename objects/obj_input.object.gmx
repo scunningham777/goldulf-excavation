@@ -27,8 +27,7 @@
             <kind>1</kind>
             <string>/// Initialize the input object
 scr_get_input();
-previous_room = room;
-pause_screenshot = noone;
+
 </string>
           </argument>
         </arguments>
@@ -53,60 +52,6 @@ pause_screenshot = noone;
             <kind>1</kind>
             <string>/// Get input
 scr_get_input();
-
-// Pause the game
-if (pause_key) {
-    if (room != rm_pause) {
-        // hide the hero
-        if (instance_exists(obj_player)) {
-            obj_player.persistent = false;
-        }
-        
-        // stash previous room &amp; screenshot it    
-        previous_room = room;
-        var width = surface_get_width(application_surface);
-        var height = surface_get_height(application_surface);
-        pause_screenshot = sprite_create_from_surface(application_surface, 0, 0, width, height, false, false, 0, 0);
-        
-        // Show pause menu
-        room_goto(rm_pause);
-    } else {
-        room_goto(previous_room);
-    }
-}
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="7" enumb="4">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// Room change cleanup
-//Persist character
-if (instance_exists(obj_player)) {
-    obj_player.persistent = true;
-}
-
-// remove pause screenshot sprite
-if (room != rm_pause &amp;&amp; pause_screenshot != noone) {
-    sprite_delete(pause_screenshot);
-    pause_screenshot = noone;
-}
 
 </string>
           </argument>

@@ -4,10 +4,14 @@
     <Config>Configs\Default</Config>
   </Configs>
   <NewExtensions/>
-  <sounds name="sound"/>
+  <sounds name="sound">
+    <sound>sound\snd_player_takes_damage</sound>
+    <sound>sound\snd_sword_attack</sound>
+    <sound>sound\snd_enemy_die</sound>
+    <sound>sound\snd_pickup</sound>
+  </sounds>
   <sprites name="sprites">
     <sprite>sprites\spr_wall</sprite>
-    <sprite>sprites\spr_enemy_flame</sprite>
     <sprites name="player">
       <sprite>sprites\spr_player_walk_left</sprite>
       <sprite>sprites\spr_player_walk_up</sprite>
@@ -31,6 +35,17 @@
     <sprite>sprites\spr_book</sprite>
     <sprite>sprites\spr_sign</sprite>
     <sprite>sprites\spr_dialog</sprite>
+    <sprites name="enemies">
+      <sprite>sprites\spr_enemy_flame</sprite>
+      <sprite>sprites\spr_roblin_move_up</sprite>
+      <sprite>sprites\spr_roblin_move_right</sprite>
+      <sprite>sprites\spr_roblin_move_down</sprite>
+      <sprite>sprites\spr_roblin_stand_up</sprite>
+      <sprite>sprites\spr_roblin_stand_right</sprite>
+      <sprite>sprites\spr_roblin_stand_down</sprite>
+    </sprites>
+    <sprite>sprites\spr_sword</sprite>
+    <sprite>sprites\spr_axe</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_marble</background>
@@ -41,6 +56,7 @@
       <script>scripts\scr_move_state.gml</script>
       <script>scripts\scr_dash_state.gml</script>
       <script>scripts\scr_attack_state.gml</script>
+      <script>scripts\scr_swap_weapon.gml</script>
     </scripts>
     <scripts name="enemy_scripts">
       <script>scripts\scr_enemy_idle_state.gml</script>
@@ -48,6 +64,7 @@
       <scripts name="enemy_helper_functions">
         <script>scripts\scr_check_for_player.gml</script>
         <script>scripts\scr_enemy_choose_next_state.gml</script>
+        <script>scripts\scr_move_axis.gml</script>
       </scripts>
       <script>scripts\scr_enemy_wander_state.gml</script>
       <script>scripts\scr_enemy_chase_state.gml</script>
@@ -58,6 +75,9 @@
       <script>scripts\scr_chance.gml</script>
       <script>scripts\scr_talk.gml</script>
       <script>scripts\scr_string_copy_words.gml</script>
+      <script>scripts\scr_save_game.gml</script>
+      <script>scripts\scr_load_game.gml</script>
+      <script>scripts\scr_animation_hit_frame.gml</script>
     </scripts>
   </scripts>
   <objects name="objects">
@@ -66,6 +86,7 @@
     <object>objects\obj_view</object>
     <object>objects\obj_dash_effect</object>
     <object>objects\obj_enemy_flame</object>
+    <object>objects\obj_enemy_roblin</object>
     <object>objects\obj_lifeform_parent</object>
     <object>objects\obj_damage</object>
     <object>objects\obj_player_stats</object>
@@ -78,6 +99,14 @@
     <object>objects\obj_sign</object>
     <object>objects\obj_input</object>
     <object>objects\obj_pause_menu</object>
+    <object>objects\obj_projectile</object>
+    <object>objects\obj_weapon_animation</object>
+    <object>objects\obj_weapon_item_sword</object>
+    <object>objects\obj_weapon_item_axe</object>
+    <object>objects\obj_weapon_item_parent</object>
+    <object>objects\obj_weapon_stats_parent</object>
+    <object>objects\obj_weapon_stats_sword</object>
+    <object>objects\obj_weapon_stats_axe</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_one</room>

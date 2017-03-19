@@ -1,5 +1,7 @@
 ///scr_move_state
 
+movement = MOVE;
+
 // Get direction
 dir = point_direction(0, 0, obj_input.xaxis, obj_input.yaxis);
 
@@ -14,21 +16,7 @@ if (obj_input.xaxis == 0 && obj_input.yaxis == 0) {
     
     //control sprite
     image_speed = walk_anim_speed;
-    scr_get_face();
-    switch(face) {
-        case RIGHT:
-            sprite_index = spr_toga_walk_right;
-            break;
-        case LEFT:
-            sprite_index = spr_toga_walk_left;
-            break;
-        case DOWN:
-            sprite_index = spr_toga_walk_down;
-            break;
-        case UP:
-            sprite_index = spr_toga_walk_up;
-            break;
-    }  
+    scr_get_face(dir);
 }
 
 // Get hspd and vspd
@@ -59,4 +47,23 @@ if (obj_input.dash_key ) {
 if (obj_input.attack_key) {
     image_index = 0;
     state = scr_attack_state;
+}
+
+// Handle "spell"
+if (obj_input.spell_key) {
+    var p = instance_create(x, y, obj_projectile);
+    var xforce = lengthdir_x(20, face*90);
+    var yforce = lengthdir_y(20, face*90);
+    p.creator = id;
+    with (p) {
+        physics_apply_impulse(x, y, xforce, yforce);
+    }
+}
+
+// Handle weapon swap
+if (obj_input.swap_key) {
+    var nearest_weapon = instance_nearest(x, y, obj_weapon_item_parent);
+    if (place_meeting(x, y + 4, nearest_weapon)) {
+        scr_swap_weapon(nearest_weapon);
+    }
 }
