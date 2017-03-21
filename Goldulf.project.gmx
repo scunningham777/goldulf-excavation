@@ -9,6 +9,8 @@
     <sound>sound\snd_sword_attack</sound>
     <sound>sound\snd_enemy_die</sound>
     <sound>sound\snd_pickup</sound>
+    <sound>sound\snd_cast_spell</sound>
+    <sound>sound\snd_teleport</sound>
   </sounds>
   <sprites name="sprites">
     <sprite>sprites\spr_wall</sprite>
@@ -46,6 +48,7 @@
     </sprites>
     <sprite>sprites\spr_sword</sprite>
     <sprite>sprites\spr_axe</sprite>
+    <sprite>sprites\spr_spell</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_marble</background>

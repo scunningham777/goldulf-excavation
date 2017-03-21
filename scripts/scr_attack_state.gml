@@ -5,7 +5,9 @@ movement = ATTACK;
 image_speed = .3;
 
 if (scr_animation_hit_frame(1)) {
-    var attack_animation = instance_create(x + weapon_offset['x', face], y + weapon_offset['y', face], obj_weapon_animation);
+    var anim_x = x + weapon_offset[XAXIS, face];
+    var anim_y = y + weapon_offset[YAXIS, face];
+    var attack_animation = instance_create(anim_x, anim_y, obj_weapon_animation);
     attack_animation.dir = face * 90;
     attack_animation.sprite_index = obj_player_stats.weapon_sprite;
     attack_animation.image_angle = (face * 90) + 45;

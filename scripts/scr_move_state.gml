@@ -37,6 +37,7 @@ if (obj_input.dash_key ) {
         scr_talk(speaker);
     } else if (obj_player_stats.stamina >= DASH_COST) {
         state = scr_dash_state;
+        audio_play_sound(snd_teleport, 6, false);
         alarm[0] = room_speed / 6;
         obj_player_stats.stamina -= DASH_COST;
         obj_player_stats.alarm[0] = room_speed;
@@ -58,6 +59,7 @@ if (obj_input.spell_key) {
     with (p) {
         physics_apply_impulse(x, y, xforce, yforce);
     }
+    audio_play_sound(snd_cast_spell, 8, false);
 }
 
 // Handle weapon swap

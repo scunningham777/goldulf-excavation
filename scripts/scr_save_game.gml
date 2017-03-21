@@ -1,4 +1,5 @@
 ///scr_save_game()
+//TODO: save weapon sprite & stats
 
 //make sure player exists
 if (!instance_exists(obj_player_stats)) {
@@ -20,6 +21,8 @@ with (obj_player_stats) {
     save_data[? "expr_to_next"] = expr_to_next;
     save_data[? "level"] = level;
     save_data[? "attack"] = attack;
+    save_data[? "weapon_attack"] = weapon.attack;
+    save_data[? "weapon_sprite"] = weapon_sprite;
 }
 
 var save_string = json_encode(save_data);

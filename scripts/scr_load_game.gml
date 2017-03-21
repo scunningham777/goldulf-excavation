@@ -30,6 +30,8 @@ with (obj_player_stats) {
     expr_to_next = save_data[? "expr_to_next"];
     level = save_data[? "level"];
     attack = save_data[? "attack"];
+    weapon.attack = save_data[? "weapon_attack"];
+    weapon_sprite = save_data[? "weapon_sprite"];
 }
 
 ds_map_destroy(save_data);

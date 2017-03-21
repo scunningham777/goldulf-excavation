@@ -46,14 +46,14 @@ face = DOWN;
 movement = MOVE;
 
 //Create Weapon offset array
-weapon_offset['x', UP] = 6;
-weapon_offset['x', RIGHT] = 0;
-weapon_offset['x', LEFT] = 0;
-weapon_offset['x', DOWN] = -6;
-weapon_offset['y', UP] = -4;
-weapon_offset['y', RIGHT] = 0;
-weapon_offset['y', LEFT] = 0;
-weapon_offset['y', DOWN] = 0;
+weapon_offset[XAXIS, UP] = 6;
+weapon_offset[XAXIS, RIGHT] = 0;
+weapon_offset[XAXIS, LEFT] = 0;
+weapon_offset[XAXIS, DOWN] = -6;
+weapon_offset[YAXIS, UP] = -2;
+weapon_offset[YAXIS, RIGHT] = 0;
+weapon_offset[YAXIS, LEFT] = 0;
+weapon_offset[YAXIS, DOWN] = 0;
 
 //Create the sprite array
 sprite[RIGHT, MOVE] = spr_toga_walk_right;
