@@ -7,7 +7,7 @@ dash_key = keyboard_check_pressed(ord('C'));
 attack_key = keyboard_check_pressed(ord('X'));
 pause_key = keyboard_check_pressed(ord('P'));
 spell_key = keyboard_check_pressed(ord('V'));
-swap_key = keyboard_check_pressed(ord('Z'));
+interact_key = keyboard_check_pressed(ord('Z'));
 
 // menu keys
 if (room == rm_pause) {
@@ -27,7 +27,7 @@ if (gamepad_is_connected(0)) {
     attack_key = gamepad_button_check_pressed(0, gp_face1);
     pause_key = gamepad_button_check_pressed(0, gp_start);
     spell_key = gamepad_button_check_pressed(0, gp_face3);
-    swap_key = gamepad_button_check_pressed(0, gp_face4);
+    interact_key = gamepad_button_check_pressed(0, gp_face4);
     
     //menu keys
     if (room == rm_pause) {

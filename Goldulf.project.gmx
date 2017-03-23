@@ -49,9 +49,12 @@
     <sprite>sprites\spr_sword</sprite>
     <sprite>sprites\spr_axe</sprite>
     <sprite>sprites\spr_spell</sprite>
+    <sprite>sprites\spr_chest_closed</sprite>
+    <sprite>sprites\spr_chest_open</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_marble</background>
+    <background>background\bg_death</background>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
@@ -81,6 +84,7 @@
       <script>scripts\scr_save_game.gml</script>
       <script>scripts\scr_load_game.gml</script>
       <script>scripts\scr_animation_hit_frame.gml</script>
+      <script>scripts\scr_try_open_chest.gml</script>
     </scripts>
   </scripts>
   <objects name="objects">
@@ -110,11 +114,14 @@
     <object>objects\obj_weapon_stats_parent</object>
     <object>objects\obj_weapon_stats_sword</object>
     <object>objects\obj_weapon_stats_axe</object>
+    <object>objects\obj_chest</object>
+    <object>objects\obj_room_fade</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_one</room>
     <room>rooms\rm_two</room>
     <room>rooms\rm_pause</room>
+    <room>rooms\rm_death</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>

@@ -29,13 +29,7 @@ phy_position_y += vspd;
 
 // Handle dash
 if (obj_input.dash_key ) {
-    var xdir = lengthdir_x(8, face * 90);
-    var ydir = lengthdir_y(8, face * 90);
-    var speaker = instance_place(x + xdir, y + ydir, obj_speaker);
-    if (speaker != noone) {
-        //Talk to speaker
-        scr_talk(speaker);
-    } else if (obj_player_stats.stamina >= DASH_COST) {
+    if (obj_player_stats.stamina >= DASH_COST) {
         state = scr_dash_state;
         audio_play_sound(snd_teleport, 6, false);
         alarm[0] = room_speed / 6;
@@ -62,10 +56,27 @@ if (obj_input.spell_key) {
     audio_play_sound(snd_cast_spell, 8, false);
 }
 
-// Handle weapon swap
-if (obj_input.swap_key) {
+// Handle contextual interactions
+if (obj_input.interact_key) {
+    //handle weapon swap
     var nearest_weapon = instance_nearest(x, y, obj_weapon_item_parent);
     if (place_meeting(x, y + 4, nearest_weapon)) {
         scr_swap_weapon(nearest_weapon);
     }
+    
+    //handle speaker interaction
+    var xdir = lengthdir_x(8, face * 90);
+    var ydir = lengthdir_y(8, face * 90);
+    var speaker = instance_place(x + xdir, y + ydir, obj_speaker);
+    if (speaker != noone) {
+        //Talk to speaker
+        scr_talk(speaker);
+    }
+    
+    //handle chests
+    var chest = instance_place(x + xdir, y + ydir, obj_chest);
+    if (chest != noone) {
+        //try to open the chest
+        scr_try_open_chest(chest);
+    } 
 }
