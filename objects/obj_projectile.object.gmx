@@ -120,7 +120,7 @@ instance_destroy();
         </arguments>
       </action>
     </event>
-    <event eventtype="4" ename="obj_player">
+    <event eventtype="4" ename="obj_hero">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -138,8 +138,8 @@ instance_destroy();
           <argument>
             <kind>1</kind>
             <string>///Collide with the player
-if (other.id != creator &amp;&amp; instance_exists(obj_player_stats)) {
-    obj_player_stats.hp -= damage;
+if (other.id != creator &amp;&amp; instance_exists(obj_hero_stats)) {
+    obj_hero_stats.hp -= damage;
     
     //Apply the knockback
     var dir = point_direction(0, 0, phy_speed_x, phy_speed_y);

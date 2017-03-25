@@ -51,9 +51,9 @@ dir = 0;
           <argument>
             <kind>1</kind>
             <string>///Follow the hero
-if (instance_exists(obj_player)) {
-    x = obj_player.x + obj_player.weapon_offset[XAXIS, obj_player.face];
-    y = obj_player.y + obj_player.weapon_offset[YAXIS, obj_player.face];
+if (instance_exists(obj_hero)) {
+    x = obj_hero.x + obj_hero.weapon_offset[XAXIS, obj_hero.face];
+    y = obj_hero.y + obj_hero.weapon_offset[YAXIS, obj_hero.face];
 } else {
     instance_destroy();
 }

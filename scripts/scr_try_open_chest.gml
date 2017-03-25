@@ -3,7 +3,7 @@ var chest = argument[0];
 with (chest) {
     if (isLocked) {
         //TODO: report to user that the chest is locked, also check for key, etc.
-    } else if (instance_exists(obj_player_stats)) {
+    } else if (instance_exists(obj_hero_stats)) {
         //handle sprite
         if (isOpen) {
             sprite_index = spr_chest_closed;
@@ -14,12 +14,18 @@ with (chest) {
         
         //handle loot
         if (!isLooted) {
-            obj_player_stats.gold += value;
-            if (is_undefined(obj_player_stats.loot)) {
-                obj_player_stats.loot[0] = contents;
+            obj_hero_stats.gold += value;
+            if (is_undefined(obj_hero_stats.loot)) {
+                obj_hero_stats.loot[0] = contents;
             } else {
-                obj_player_stats.loot[array_length_1d(obj_player_stats.loot)] = contents;
+                obj_hero_stats.loot[array_length_1d(obj_hero_stats.loot)] = contents;
             }
+            
+            var effect = instance_create(x, y, obj_particle_ball);
+            with (effect) {
+                part_type_colour1(spark, c_orange);
+            }
+            
             isLooted = true;
         }
     }

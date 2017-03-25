@@ -2,14 +2,14 @@
 //TODO: save weapon sprite & stats
 
 //make sure player exists
-if (!instance_exists(obj_player_stats)) {
+if (!instance_exists(obj_hero_stats)) {
     exit;
 }
 
 //create save data structure
 var save_data = ds_map_create();
 
-with (obj_player_stats) {
+with (obj_hero_stats) {
     save_data[? "room"] = previous_room;
     save_data[? "x"] = player_xstart;
     save_data[? "y"] = player_ystart;

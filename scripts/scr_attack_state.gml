@@ -9,7 +9,7 @@ if (scr_animation_hit_frame(1)) {
     var anim_y = y + weapon_offset[YAXIS, face];
     var attack_animation = instance_create(anim_x, anim_y, obj_weapon_animation);
     attack_animation.dir = face * 90;
-    attack_animation.sprite_index = obj_player_stats.weapon_sprite;
+    attack_animation.sprite_index = obj_hero_stats.weapon_sprite;
     attack_animation.image_angle = (face * 90) + 45;
     if (face == DOWN || face == RIGHT) {
         attack_animation.depth = depth - 1;
@@ -42,5 +42,5 @@ if (scr_animation_hit_frame(2)) {
     audio_play_sound(snd_sword_attack, 8, false);
     var damage = instance_create(dam_x, dam_y, obj_damage);
     damage.creator = id;
-    damage.damage = obj_player_stats.attack + obj_player_stats.weapon.attack;
+    damage.damage = obj_hero_stats.attack + obj_hero_stats.weapon.attack;
 }

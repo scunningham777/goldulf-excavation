@@ -1,6 +1,6 @@
 ///scr_swap_weapon(new_weapon)
-if (instance_exists(obj_player_stats)) {
-    with (obj_player_stats) {        
+if (instance_exists(obj_hero_stats)) {
+    with (obj_hero_stats) {        
         var new_weapon = argument[0];
         var temp_sprite = weapon_sprite;
         var temp_stats = weapon;

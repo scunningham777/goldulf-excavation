@@ -10,16 +10,16 @@ if (room != save_room) {
     room_goto(save_room);
 }
 
-with (obj_player_stats) {
+with (obj_hero_stats) {
     player_xstart = save_data[? "x"];
     player_ystart = save_data[? "y"];
-    if (instance_exists(obj_player)) {
-        obj_player.x = player_xstart;
-        obj_player.y = player_ystart;
-        obj_player.phy_position_x = player_xstart;
-        obj_player.phy_position_y = player_ystart;
+    if (instance_exists(obj_hero)) {
+        obj_hero.x = player_xstart;
+        obj_hero.y = player_ystart;
+        obj_hero.phy_position_x = player_xstart;
+        obj_hero.phy_position_y = player_ystart;
     } else {
-        instance_create(player_xstart, player_ystart, obj_player);
+        instance_create(player_xstart, player_ystart, obj_hero);
     }
     
     hp = save_data[? "hp"];

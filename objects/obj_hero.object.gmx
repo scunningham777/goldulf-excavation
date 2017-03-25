@@ -27,7 +27,7 @@
             <kind>1</kind>
             <string>///Init
 //band-aid duplicate hero bug
-if (instance_number(obj_player) &gt; 1) {
+if (instance_number(obj_hero) &gt; 1) {
     instance_destroy();
 }
 event_inherited();
@@ -148,7 +148,7 @@ script_execute(state);
 sprite_index = sprite[face, movement];
 
 //check for death
-if (obj_player_stats.hp &lt;= 0) {
+if (obj_hero_stats.hp &lt;= 0) {
     instance_destroy();
 }
 
@@ -183,7 +183,7 @@ with (other) {
 
 audio_play_sound(snd_pickup, 6, false);
 
-with (obj_player_stats) {
+with (obj_hero_stats) {
     hp = min(hp + 5, max_hp);
 }
 

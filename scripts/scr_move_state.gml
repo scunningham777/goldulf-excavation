@@ -29,12 +29,12 @@ phy_position_y += vspd;
 
 // Handle dash
 if (obj_input.dash_key ) {
-    if (obj_player_stats.stamina >= DASH_COST) {
+    if (obj_hero_stats.stamina >= DASH_COST) {
         state = scr_dash_state;
         audio_play_sound(snd_teleport, 6, false);
         alarm[0] = room_speed / 6;
-        obj_player_stats.stamina -= DASH_COST;
-        obj_player_stats.alarm[0] = room_speed;
+        obj_hero_stats.stamina -= DASH_COST;
+        obj_hero_stats.alarm[0] = room_speed;
     }
 }
 

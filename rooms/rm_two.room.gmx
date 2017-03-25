@@ -10,18 +10,10 @@
   <persistent>-1</persistent>
   <colour>12632256</colour>
   <showcolour>-1</showcolour>
-  <code>///create random chest
-var rand_x = random_range(room_width / 4, room_width / 4 * 3);
-var rand_y = random_range(room_height / 4, room_height / 4 * 3)
-var chest = instance_create(rand_x, rand_y, obj_chest);
-
-var loot;
-loot[0] = '3 tin earrings';
-loot[1] = '1 bronze earth goddess statue';
-loot[2] = '2 silver rings';
-
-chest.value = irandom_range(3, 7);
-chest.contents = loot[irandom(2)];</code>
+  <code>///create random chest(s)
+repeat(irandom(2)) {
+    scr_generate_random_chest();
+}</code>
   <enableViews>-1</enableViews>
   <clearViewBackground>-1</clearViewBackground>
   <clearDisplayBuffer>-1</clearDisplayBuffer>

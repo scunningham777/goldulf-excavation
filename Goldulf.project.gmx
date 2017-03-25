@@ -85,10 +85,11 @@
       <script>scripts\scr_load_game.gml</script>
       <script>scripts\scr_animation_hit_frame.gml</script>
       <script>scripts\scr_try_open_chest.gml</script>
+      <script>scripts\scr_generate_random_chest.gml</script>
     </scripts>
   </scripts>
   <objects name="objects">
-    <object>objects\obj_player</object>
+    <object>objects\obj_hero</object>
     <object>objects\obj_wall</object>
     <object>objects\obj_view</object>
     <object>objects\obj_dash_effect</object>
@@ -96,7 +97,7 @@
     <object>objects\obj_enemy_roblin</object>
     <object>objects\obj_lifeform_parent</object>
     <object>objects\obj_damage</object>
-    <object>objects\obj_player_stats</object>
+    <object>objects\obj_hero_stats</object>
     <object>objects\obj_corpse</object>
     <object>objects\obj_door</object>
     <object>objects\obj_health</object>
@@ -116,6 +117,8 @@
     <object>objects\obj_weapon_stats_axe</object>
     <object>objects\obj_chest</object>
     <object>objects\obj_room_fade</object>
+    <object>objects\obj_player_museum</object>
+    <object>objects\obj_particle_ball</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_one</room>

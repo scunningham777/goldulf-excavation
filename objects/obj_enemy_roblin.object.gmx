@@ -25,7 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Initialize slime
+            <string>/// Initialize roblin
 event_inherited();
 image_speed = .2;
 spd = 1;
@@ -34,6 +34,7 @@ alarm[0] = room_speed * irandom_range(2, 4);
 sight = 64;
 xaxis = 0;
 yaxis = 0;
+damage_color = c_yellow;
 
 face = RIGHT;
 movement = IDLE;
@@ -161,7 +162,7 @@ sprite_index = sprite[face, movement];
         </arguments>
       </action>
     </event>
-    <event eventtype="4" ename="obj_player">
+    <event eventtype="4" ename="obj_hero">
       <action>
         <libid>1</libid>
         <id>603</id>

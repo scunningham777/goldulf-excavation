@@ -29,6 +29,7 @@
 phy_fixed_rotation = true;
 hp = 3;
 expr_value = 1;
+damage_color = c_red;
 
 </string>
           </argument>
@@ -53,8 +54,8 @@ expr_value = 1;
           <argument>
             <kind>1</kind>
             <string>/// Lifeform death
-if (object_exists(obj_player_stats)) {
-    obj_player_stats.expr += expr_value;
+if (object_exists(obj_hero_stats)) {
+    obj_hero_stats.expr += expr_value;
 }
 
 instance_create(x, y, obj_corpse);
