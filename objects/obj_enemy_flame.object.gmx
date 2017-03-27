@@ -34,7 +34,9 @@ alarm[0] = room_speed * irandom_range(2, 4);
 sight = 64;
 xaxis = 0;
 yaxis = 0;
-damage_color = c_fuchsia;
+damage_color1 = c_aqua;
+damage_color2 = c_fuchsia;
+damage_color_type = COLOR_TRANSITION;
 </string>
           </argument>
         </arguments>

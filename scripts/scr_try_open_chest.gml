@@ -23,7 +23,7 @@ with (chest) {
             
             var effect = instance_create(x, y, obj_particle_ball);
             with (effect) {
-                part_type_colour1(spark, c_orange);
+                part_type_colour_mix(spark, c_yellow, c_orange);
             }
             
             isLooted = true;

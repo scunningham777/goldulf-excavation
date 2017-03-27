@@ -87,6 +87,8 @@
       <script>scripts\scr_try_open_chest.gml</script>
       <script>scripts\scr_generate_random_chest.gml</script>
     </scripts>
+    <script>scripts\scr_generate_random_monster.gml</script>
+    <script>scripts\scr_init_item_map.gml</script>
   </scripts>
   <objects name="objects">
     <object>objects\obj_hero</object>
@@ -119,6 +121,7 @@
     <object>objects\obj_room_fade</object>
     <object>objects\obj_player_museum</object>
     <object>objects\obj_particle_ball</object>
+    <object>objects\obj_death_menu</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_one</room>

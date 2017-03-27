@@ -1,5 +1,5 @@
 ///scr_generate_random_chest
-var rand_x, rand_y, hit_lf, hit_w, hit_c;
+var rand_x, rand_y;
 do {
     rand_x = random_range(room_width / 4, room_width / 4 * 3);
     rand_y = random_range(room_height / 4, room_height / 4 * 3);    

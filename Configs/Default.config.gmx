@@ -651,7 +651,7 @@
     <option_xbone_title_id></option_xbone_title_id>
   </Options>
   <ConfigConstants>
-    <constants number="13">
+    <constants number="15">
       <constant name="RIGHT">0</constant>
       <constant name="UP">1</constant>
       <constant name="LEFT">2</constant>
@@ -665,6 +665,8 @@
       <constant name="IDLE">2</constant>
       <constant name="XAXIS">0</constant>
       <constant name="YAXIS">1</constant>
+      <constant name="COLOR_BLEND">0</constant>
+      <constant name="COLOR_TRANSITION">1</constant>
     </constants>
   </ConfigConstants>
 </Config>

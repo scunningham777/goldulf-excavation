@@ -29,7 +29,9 @@
 phy_fixed_rotation = true;
 hp = 3;
 expr_value = 1;
-damage_color = c_red;
+damage_color1 = c_red;
+damage_color2 = c_maroon;
+damage_color_type = COLOR_BLEND;
 
 </string>
           </argument>

@@ -93,9 +93,15 @@ if (other.id != creator) {
     }
 
     var effect = instance_create(other.x, other.y, obj_particle_ball);
-    var color = other.damage_color;
+    var recipient = other;
+    var color1 = other.damage_color1;
+    var color_type = other.damage_color_type;
     with (effect) {
-        part_type_color1(spark, color);
+        if (recipient.damage_color_type == COLOR_BLEND) {
+            part_type_color_mix(spark, recipient.damage_color1, recipient.damage_color2);
+        } else if (recipient.damage_color_type == COLOR_TRANSITION) {
+            part_type_color2(spark, recipient.damage_color1, recipient.damage_color2);
+        }
     }
 }
 </string>
@@ -138,11 +144,16 @@ if (other.id != creator) {
     }
 
     var effect = instance_create(other.x, other.y, obj_particle_ball);
-    var color = other.damage_color;
+    var recipient = other;
+    var color1 = other.damage_color1;
+    var color_type = other.damage_color_type;
     with (effect) {
-        part_type_color1(spark, color);
+        if (recipient.damage_color_type == COLOR_BLEND) {
+            part_type_color_mix(spark, recipient.damage_color1, recipient.damage_color2);
+        } else if (recipient.damage_color_type == COLOR_TRANSITION) {
+            part_type_color2(spark, recipient.damage_color1, recipient.damage_color2);
+        }
     }
-
 }
 </string>
           </argument>

@@ -10,9 +10,22 @@
   <persistent>-1</persistent>
   <colour>12632256</colour>
   <showcolour>-1</showcolour>
-  <code>///create random chest(s)
+  <code>///create random stuff
+randomize();
+
+//chest(s)
 repeat(irandom(2)) {
     scr_generate_random_chest();
+}
+
+//monsters
+var num_monsters = irandom_range(3, 6);
+var monster_types;
+monster_types[0] = obj_enemy_flame;
+monster_types[1] = obj_enemy_roblin;
+
+repeat(num_monsters) {
+    scr_generate_random_monster(monster_types[irandom(1)], 96);
 }</code>
   <enableViews>-1</enableViews>
   <clearViewBackground>-1</clearViewBackground>
@@ -66,7 +79,7 @@ repeat(irandom(2)) {
     <instance objName="obj_wall" x="0" y="96" name="inst_1F09B7B5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall" x="0" y="64" name="inst_2368B62D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall" x="0" y="32" name="inst_AAC3E4EA" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_hero" x="288" y="160" name="inst_4E799384" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_hero" x="64" y="64" name="inst_4E799384" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall" x="128" y="32" name="inst_E274807E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall" x="416" y="96" name="inst_8C0E289C" locked="0" code="" scaleX="1" scaleY="1.03225803375244" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall" x="160" y="224" name="inst_1A2B39FD" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -140,15 +153,10 @@ repeat(irandom(2)) {
     <instance objName="obj_wall" x="416" y="288" name="inst_4E324273" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall" x="448" y="288" name="inst_E989A06B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_view" x="64" y="64" name="inst_CDE04076" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_enemy_flame" x="64" y="192" name="inst_456C122E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_enemy_flame" x="512" y="64" name="inst_6880E5CE" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_hero_stats" x="64" y="32" name="inst_80EABE12" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_enemy_flame" x="192" y="288" name="inst_21382590" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_door" x="544" y="320" name="inst_D9BB53C0" locked="0" code="new_room = rm_two;&#xA;new_x = 64;&#xA;new_y = 36;&#xA;" scaleX="2" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_sign" x="544" y="256" name="inst_2FBFBFA7" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_sign" x="64" y="128" name="inst_2FBFBFA7" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_input" x="64" y="96" name="inst_90BFB96D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_enemy_roblin" x="544" y="160" name="inst_30C35175" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_enemy_roblin" x="352" y="288" name="inst_1F33C5B0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>-1</PhysicsWorld>
