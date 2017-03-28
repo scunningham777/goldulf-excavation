@@ -14,17 +14,25 @@ with (chest) {
         
         //handle loot
         if (!isLooted) {
-            obj_hero_stats.gold += value;
-            if (is_undefined(obj_hero_stats.loot)) {
-                obj_hero_stats.loot[0] = contents;
-            } else {
-                obj_hero_stats.loot[array_length_1d(obj_hero_stats.loot)] = contents;
-            }
+            scr_acquire_loot(contents);
             
             var effect = instance_create(x, y, obj_particle_ball);
             with (effect) {
                 part_type_colour_mix(spark, c_yellow, c_orange);
             }
+            var num_loot = contents[# 1, 0];
+            var loot_name = g_item_stats[# 1, contents[# 0, 0]];
+            var loot_plural = 's';
+            if (num_loot == 1) {
+                loot_plural = '';
+            }
+
+            var loot_message = string(num_loot) + ' ' + loot_name + loot_plural;
+            var message_x = x + irandom_range(-8, 8);
+            var message_y = y - 10 - irandom(-8);
+            var message_obj = instance_create(message_x, message_y, obj_acquisition_message);
+            message_obj.message = loot_message;
+            message_obj.duration = 1;
             
             isLooted = true;
         }

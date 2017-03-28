@@ -38,7 +38,9 @@ weapon = instance_create(0, 0, obj_weapon_stats_sword);
 weapon_sprite = spr_sword;
 pause_screenshot = noone;
 gold = 0;
-loot = undefined;
+
+//loot structure: 0: item id | 1: quantity
+loot = ds_grid_create(2, 0);
 
 // Get player's xstart and ystart
 if (instance_exists(obj_hero)) {
@@ -225,7 +227,7 @@ if (room != rm_pause) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>ds_map_destroy(item_map);
+            <string>ds_grid_destroy(g_item_stats);
 </string>
           </argument>
         </arguments>
@@ -248,8 +250,8 @@ if (room != rm_pause) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Create item map
-scr_init_item_map();
+            <string>///Create item stats
+scr_init_item_stats();
 </string>
           </argument>
         </arguments>
@@ -283,7 +285,7 @@ if (room != rm_pause) {
         bg_height = 96;
     } else {
         bg_width = 320;
-        bg_height = 112 + 16 * array_length_1d(loot);
+        bg_height = 96 + 16 * ds_grid_height(loot);
     }
     draw_rectangle_colour(0, 0, bg_width, bg_height, c_black, c_black, c_black, c_black, false);
     draw_set_alpha(1);
@@ -293,12 +295,19 @@ draw_set_color(c_white);
 draw_text(32, 16, "LEVEL: " + string(level));
 draw_text(32, 32, "HP: " + string(hp) + "/" + string(max_hp));
 draw_text(32, 48, "STAMINA: " + string(stamina) + "/" + string(max_stamina));
-draw_text(32, 64, "GOLD: " + string(gold));
 
 if (!is_undefined(loot)) {
-    draw_text(32, 80, "Loot:");
-    for (var i = 0; i &lt; array_length_1d(loot); i++) {
-        draw_text(41, 96 + i * 16, loot[i]);
+    draw_text(32, 64, "Loot:");
+    for (var i = 0; i &lt; ds_grid_height(loot); i++) {
+        var num_loot = loot[# 1, i];
+        var loot_plural = 's';
+        if (num_loot == 1) {
+            loot_plural = '';
+        }
+        var loot_name = g_item_stats[# 1, loot[# 0, i]];
+
+        var loot_string = string(num_loot) + ' ' + loot_name + loot_plural;
+        draw_text(41, 80 + i * 16, loot_string);
     }
 }
 

@@ -63,6 +63,7 @@
       <script>scripts\scr_dash_state.gml</script>
       <script>scripts\scr_attack_state.gml</script>
       <script>scripts\scr_swap_weapon.gml</script>
+      <script>scripts\scr_acquire_loot.gml</script>
     </scripts>
     <scripts name="enemy_scripts">
       <script>scripts\scr_enemy_idle_state.gml</script>
@@ -86,15 +87,16 @@
       <script>scripts\scr_animation_hit_frame.gml</script>
       <script>scripts\scr_try_open_chest.gml</script>
       <script>scripts\scr_generate_random_chest.gml</script>
+      <script>scripts\scr_generate_random_monster.gml</script>
     </scripts>
-    <script>scripts\scr_generate_random_monster.gml</script>
-    <script>scripts\scr_init_item_map.gml</script>
+    <script>scripts\scr_init_item_stats.gml</script>
   </scripts>
   <objects name="objects">
     <object>objects\obj_hero</object>
     <object>objects\obj_wall</object>
     <object>objects\obj_view</object>
     <object>objects\obj_dash_effect</object>
+    <object>objects\obj_acquisition_message</object>
     <object>objects\obj_enemy_flame</object>
     <object>objects\obj_enemy_roblin</object>
     <object>objects\obj_lifeform_parent</object>
