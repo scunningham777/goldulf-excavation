@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>obj_menu_parent</parentName>
+  <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -25,20 +25,14 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Initialize the pause menu
-event_inherited();
-title = "Game Paused";
+            <string>/// Declare instance properties
+// Museum structure: 0: item id | 1: quantity | 2: item type
+museum = ds_grid_create(3, 0);
 
-option[0] = "Return";
-option[1] = "Save";
-option[2] = "Load";
-option[3] = "Quit";
+hero_souls = noone;
 
-//Menu index
-menu_index = 0;
+current_era = "ancient";
 
-//Selection handler script
-selection_handler_script = scr_menu_pause_handle_selection;
 </string>
           </argument>
         </arguments>

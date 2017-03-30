@@ -91,8 +91,6 @@ repeat(irandom(2)) {
     <instance objName="obj_wall" x="608" y="64" name="inst_BDB13559" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall" x="608" y="96" name="inst_943594F4" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall" x="608" y="128" name="inst_6266B246" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_wall" x="608" y="160" name="inst_99665D3F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_wall" x="608" y="192" name="inst_4E0E387C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall" x="608" y="224" name="inst_867CCB68" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall" x="608" y="256" name="inst_A8C2DDEE" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall" x="608" y="288" name="inst_377BF89A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -125,6 +123,7 @@ repeat(irandom(2)) {
     <instance objName="obj_enemy_flame" x="544" y="256" name="inst_E1EA0715" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_door" x="32" y="0" name="inst_CCE1C518" locked="0" code="new_room = rm_one;&#xA;new_x = room_width - 64;&#xA;new_y = room_height - 54;&#xA;" scaleX="2" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_weapon_item_axe" x="224" y="96" name="inst_4114D272" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_door" x="608" y="160" name="inst_AA5B8413" locked="0" code="new_room = rm_wilderness1;&#xA;new_x = 36;&#xA;new_y = 192;" scaleX="1" scaleY="2" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>-1</PhysicsWorld>

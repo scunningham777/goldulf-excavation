@@ -79,4 +79,11 @@ if (obj_input.interact_key) {
         //try to open the chest
         scr_try_open_chest(chest);
     } 
+    
+    //handle Museum access
+    var museum_acc = instance_place(x + xdir, y + ydir, obj_museum_access);
+    if (museum_acc != noone) {
+        //ask to stash loot
+        scr_request_stash_loot();
+    }
 }

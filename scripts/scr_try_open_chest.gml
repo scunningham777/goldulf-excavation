@@ -14,7 +14,7 @@ with (chest) {
         
         //handle loot
         if (!isLooted) {
-            scr_acquire_loot(contents);
+            scr_merge_loot_grids(contents, obj_hero_stats.loot);
             
             var effect = instance_create(x, y, obj_particle_ball);
             with (effect) {

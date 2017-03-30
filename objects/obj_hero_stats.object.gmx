@@ -26,6 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>///Initialize the player's stats
+name = 'a';
 hp = 5;
 max_hp = hp;
 stamina = 10;
@@ -38,6 +39,10 @@ weapon = instance_create(0, 0, obj_weapon_stats_sword);
 weapon_sprite = spr_sword;
 pause_screenshot = noone;
 gold = 0;
+total_kills = 0;
+lifetime_loot_value = 0;
+hero_type = 'toga';
+hero_build = 'archeologist';
 
 //loot structure: 0: item id | 1: quantity
 loot = ds_grid_create(2, 0);
@@ -80,6 +85,9 @@ room_start_action = NEW_ROOM;
           <argument>
             <kind>1</kind>
             <string>///Stamina regeneration
+if (room == rm_pause) {
+    alarm[0] += 1;
+}
 </string>
           </argument>
         </arguments>
@@ -127,20 +135,7 @@ if (stamina &lt; max_stamina &amp;&amp; alarm[0] == -1) {
 // Pause the game
 if (obj_input.pause_key) {
     if (room != rm_pause) {
-        // hide the hero
-        if (instance_exists(obj_hero)) {
-            obj_hero.persistent = false;
-        }
-        
-        // stash previous room &amp; screenshot it    
-        previous_room = room;
-        room_persistent = true;
-        var width = surface_get_width(application_surface);
-        var height = surface_get_height(application_surface);
-        pause_screenshot = sprite_create_from_surface(application_surface, 0, 0, width, height, false, false, 0, 0);
-        
-        // Show pause menu
-        room_goto(rm_pause);
+        scr_switch_to_pause_menu(obj_pause_menu);
     } else {
         room_goto(previous_room);
     }

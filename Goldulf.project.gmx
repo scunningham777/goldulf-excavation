@@ -51,6 +51,8 @@
     <sprite>sprites\spr_spell</sprite>
     <sprite>sprites\spr_chest_closed</sprite>
     <sprite>sprites\spr_chest_open</sprite>
+    <sprite>sprites\spr_tree</sprite>
+    <sprite>sprites\spr_museum</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_marble</background>
@@ -63,7 +65,6 @@
       <script>scripts\scr_dash_state.gml</script>
       <script>scripts\scr_attack_state.gml</script>
       <script>scripts\scr_swap_weapon.gml</script>
-      <script>scripts\scr_acquire_loot.gml</script>
     </scripts>
     <scripts name="enemy_scripts">
       <script>scripts\scr_enemy_idle_state.gml</script>
@@ -90,6 +91,12 @@
       <script>scripts\scr_generate_random_monster.gml</script>
     </scripts>
     <script>scripts\scr_init_item_stats.gml</script>
+    <script>scripts\scr_request_stash_loot.gml</script>
+    <script>scripts\scr_menu_pause_handle_selection.gml</script>
+    <script>scripts\scr_menu_stash_confirm_handle_selection.gml</script>
+    <script>scripts\scr_switch_to_pause_menu.gml</script>
+    <script>scripts\scr_stash_all_current_loot.gml</script>
+    <script>scripts\scr_merge_loot_grids.gml</script>
   </scripts>
   <objects name="objects">
     <object>objects\obj_hero</object>
@@ -111,6 +118,7 @@
     <object>objects\obj_sign</object>
     <object>objects\obj_input</object>
     <object>objects\obj_pause_menu</object>
+    <object>objects\obj_menu_parent</object>
     <object>objects\obj_projectile</object>
     <object>objects\obj_weapon_animation</object>
     <object>objects\obj_weapon_item_sword</object>
@@ -124,12 +132,18 @@
     <object>objects\obj_player_museum</object>
     <object>objects\obj_particle_ball</object>
     <object>objects\obj_death_menu</object>
+    <object>objects\obj_game_enterprise</object>
+    <object>objects\obj_wall_tree</object>
+    <object>objects\obj_museum_access</object>
+    <object>objects\obj_stash_loot_confirm_menu</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_one</room>
     <room>rooms\rm_two</room>
     <room>rooms\rm_pause</room>
     <room>rooms\rm_death</room>
+    <room>rooms\rm_wilderness1</room>
+    <room>rooms\rm_town1</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>
