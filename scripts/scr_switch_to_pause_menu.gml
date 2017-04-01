@@ -16,7 +16,10 @@ if (instance_exists(obj_hero_stats)) {
         pause_screenshot = sprite_create_from_surface(application_surface, 0, 0, width, height, false, false, 0, 0);
 
         // add the designated menu object to the menu room
-        room_instance_add(rm_pause, 0, 0, menu_obj);
+        globalvar g_menu_obj;
+        g_menu_obj = instance_create(0, 0, menu_obj);
+        g_menu_obj.persistent = true;
+//        room_instance_add(rm_pause, 0, 0, menu_obj);
                 
         // Show pause menu
         room_goto(rm_pause);

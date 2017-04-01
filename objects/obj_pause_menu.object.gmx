@@ -27,7 +27,7 @@
             <kind>1</kind>
             <string>///Initialize the pause menu
 event_inherited();
-title = "Game Paused";
+title[0] = "Game Paused";
 
 option[0] = "Return";
 option[1] = "Save";

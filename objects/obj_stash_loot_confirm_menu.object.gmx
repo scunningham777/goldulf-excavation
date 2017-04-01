@@ -27,7 +27,8 @@
             <kind>1</kind>
             <string>///Initialize the confirm stash menu
 event_inherited();
-title = "Are you sure you want to \nstash all loot in the Museum?";
+title[0] = "Are you sure you want";
+title[1] = "to stash all loot in the Museum?";
 
 option[0] = "Stash it!";
 option[1] = "Maybe next time...";
