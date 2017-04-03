@@ -57,6 +57,8 @@
   <backgrounds name="background">
     <background>background\bg_marble</background>
     <background>background\bg_death</background>
+    <background>background\bg_floor</background>
+    <background>background\bg_wall</background>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
@@ -65,6 +67,7 @@
       <script>scripts\scr_dash_state.gml</script>
       <script>scripts\scr_attack_state.gml</script>
       <script>scripts\scr_swap_weapon.gml</script>
+      <script>scripts\scr_grid_move_state.gml</script>
     </scripts>
     <scripts name="enemy_scripts">
       <script>scripts\scr_enemy_idle_state.gml</script>
@@ -89,14 +92,20 @@
       <script>scripts\scr_try_open_chest.gml</script>
       <script>scripts\scr_generate_random_chest.gml</script>
       <script>scripts\scr_generate_random_monster.gml</script>
+      <script>scripts\scr_merge_loot_grids.gml</script>
+      <script>scripts\scr_stash_all_current_loot.gml</script>
     </scripts>
-    <script>scripts\scr_init_item_stats.gml</script>
-    <script>scripts\scr_request_stash_loot.gml</script>
-    <script>scripts\scr_menu_pause_handle_selection.gml</script>
-    <script>scripts\scr_menu_stash_confirm_handle_selection.gml</script>
-    <script>scripts\scr_switch_to_pause_menu.gml</script>
-    <script>scripts\scr_stash_all_current_loot.gml</script>
-    <script>scripts\scr_merge_loot_grids.gml</script>
+    <scripts name="initialization_scripts">
+      <script>scripts\scr_init_item_stats.gml</script>
+    </scripts>
+    <scripts name="menu_scripts">
+      <script>scripts\scr_menu_pause_handle_selection.gml</script>
+      <script>scripts\scr_menu_stash_confirm_handle_selection.gml</script>
+      <script>scripts\scr_switch_to_pause_menu.gml</script>
+      <script>scripts\scr_request_stash_loot.gml</script>
+    </scripts>
+    <script>scripts\scr_generate_level.gml</script>
+    <script>scripts\scr_grid_move.gml</script>
   </scripts>
   <objects name="objects">
     <object>objects\obj_hero</object>
@@ -138,6 +147,7 @@
     <object>objects\obj_stash_loot_confirm_menu</object>
   </objects>
   <rooms name="rooms">
+    <room>rooms\rm_grid_one</room>
     <room>rooms\rm_one</room>
     <room>rooms\rm_two</room>
     <room>rooms\rm_pause</room>

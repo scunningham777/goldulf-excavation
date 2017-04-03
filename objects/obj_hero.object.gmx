@@ -40,7 +40,8 @@ yaxis = 0;
 len = 0;
 dir = 90;
 walk_anim_speed = 0.15;
-state = scr_move_state;
+//state = scr_move_state;
+state = scr_grid_move_state;
 image_speed = 0;
 face = DOWN;
 movement = MOVE;
@@ -284,7 +285,7 @@ if (state == scr_attack_state) {
           <argument>
             <kind>1</kind>
             <string>///New physics fixture on room start
-phy_fixed_rotation = true;
+//phy_fixed_rotation = true;
 persistent = true;
 </string>
           </argument>
