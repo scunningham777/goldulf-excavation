@@ -13,7 +13,8 @@
   <code>///create random stuff
 randomize();
 
-scr_generate_level(1440, 1440, 1000);
+cur_level = instance_create(0, 0, obj_grid_level);
+scr_generate_level(cur_level, 1440, 1440, 1000);
 
 instance_create(0, 0, obj_view);
 instance_create(0, 0, obj_input);

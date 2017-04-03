@@ -106,6 +106,7 @@
     </scripts>
     <script>scripts\scr_generate_level.gml</script>
     <script>scripts\scr_grid_move.gml</script>
+    <script>scripts\scr_grid_place_meeting.gml</script>
   </scripts>
   <objects name="objects">
     <object>objects\obj_hero</object>
@@ -145,6 +146,7 @@
     <object>objects\obj_wall_tree</object>
     <object>objects\obj_museum_access</object>
     <object>objects\obj_stash_loot_confirm_menu</object>
+    <object>objects\obj_grid_level</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_grid_one</room>

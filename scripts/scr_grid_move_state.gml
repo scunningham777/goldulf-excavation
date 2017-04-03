@@ -4,6 +4,10 @@ if (instance_exists(obj_input)) {
     var vspd = spd * obj_input.yaxis;
     
     if (!(hspd == 0 && vspd == 0)) {
-        scr_grid_move(hspd, vspd);    
+        dir = point_direction(0, 0, hspd, vspd);
+        image_speed = walk_anim_speed;
+        scr_get_face(dir);
+
+                scr_grid_move(hspd, vspd);    
     }
 }
