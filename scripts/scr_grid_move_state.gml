@@ -8,6 +8,9 @@ if (instance_exists(obj_input)) {
         image_speed = walk_anim_speed;
         scr_get_face(dir);
 
-                scr_grid_move(hspd, vspd);    
+        scr_grid_move(hspd, vspd);    
+    } else {
+        image_speed = 0;
+        image_index = 1;
     }
 }

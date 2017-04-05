@@ -63,11 +63,14 @@
   <paths name="paths"/>
   <scripts name="scripts">
     <scripts name="player_scripts">
-      <script>scripts\scr_move_state.gml</script>
-      <script>scripts\scr_dash_state.gml</script>
-      <script>scripts\scr_attack_state.gml</script>
-      <script>scripts\scr_swap_weapon.gml</script>
       <script>scripts\scr_grid_move_state.gml</script>
+      <script>scripts\scr_idle_state.gml</script>
+      <scripts name="tutorial">
+        <script>scripts\scr_tut_attack_state.gml</script>
+        <script>scripts\scr_tut_dash_state.gml</script>
+        <script>scripts\scr_tut_move_state.gml</script>
+        <script>scripts\scr_tut_swap_weapon.gml</script>
+      </scripts>
     </scripts>
     <scripts name="enemy_scripts">
       <script>scripts\scr_enemy_idle_state.gml</script>

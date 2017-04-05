@@ -13,6 +13,10 @@
   <code>///create random stuff
 randomize();
 
+//Create item stats
+scr_init_item_stats();
+
+//generate random dungeon
 cur_level = instance_create(0, 0, obj_grid_level);
 scr_generate_level(cur_level, 1440, 1440, 1000);
 

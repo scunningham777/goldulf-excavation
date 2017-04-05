@@ -40,7 +40,7 @@ yaxis = 0;
 len = 0;
 dir = 90;
 walk_anim_speed = 0.15;
-//state = scr_move_state;
+//state = scr_tut_move_state;
 state = scr_grid_move_state;
 image_speed = 0;
 face = DOWN;
@@ -118,7 +118,7 @@ transition.next_room = rm_death;
           <argument>
             <kind>1</kind>
             <string>// alarm for dash state
-state = scr_move_state;
+state = scr_tut_move_state;
 </string>
           </argument>
         </arguments>
@@ -241,8 +241,8 @@ if (room_exists(other.new_room)) {
             <kind>1</kind>
             <string>/// Change back to move state
 
-if (state == scr_attack_state) {
-    state = scr_move_state;
+if (state == scr_tut_attack_state) {
+    state = scr_tut_move_state;
     attacked = false;
     
     image_index = 0;

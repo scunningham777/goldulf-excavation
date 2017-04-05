@@ -27,6 +27,8 @@
             <kind>1</kind>
             <string>/// Initialize lifeform
 //phy_fixed_rotation = true;
+
+action_queue = ds_queue_create();
 hp = 3;
 expr_value = 1;
 damage_color1 = c_red;

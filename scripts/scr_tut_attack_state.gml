@@ -1,4 +1,4 @@
-///scr_attack_state
+///scr_tut_attack_state
 
 movement = ATTACK;
 

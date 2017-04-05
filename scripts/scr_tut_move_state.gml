@@ -1,4 +1,4 @@
-///scr_move_state
+///scr_tut_move_state
 
 movement = MOVE;
 
@@ -30,7 +30,7 @@ phy_position_y += vspd;
 // Handle dash
 if (obj_input.dash_key ) {
     if (obj_hero_stats.stamina >= DASH_COST) {
-        state = scr_dash_state;
+        state = scr_tut_dash_state;
         audio_play_sound(snd_teleport, 6, false);
         alarm[0] = room_speed / 6;
         obj_hero_stats.stamina -= DASH_COST;
@@ -41,7 +41,7 @@ if (obj_input.dash_key ) {
 // Handle attack
 if (obj_input.attack_key) {
     image_index = 0;
-    state = scr_attack_state;
+    state = scr_tut_attack_state;
 }
 
 // Handle "spell"
@@ -61,7 +61,7 @@ if (obj_input.interact_key) {
     //handle weapon swap
     var nearest_weapon = instance_nearest(x, y, obj_weapon_item_parent);
     if (place_meeting(x, y + 4, nearest_weapon)) {
-        scr_swap_weapon(nearest_weapon);
+        scr_tut_swap_weapon(nearest_weapon);
     }
     
     //handle speaker interaction

@@ -1,4 +1,4 @@
-//scr_dash_state
+//scr_tut_dash_state
 
 movement = MOVE;
 
