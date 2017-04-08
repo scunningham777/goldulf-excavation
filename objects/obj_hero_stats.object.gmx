@@ -264,12 +264,20 @@ if (room != rm_pause) {
 }
 
 draw_set_color(c_white);
-draw_text(32, 16, "LEVEL: " + string(level));
-draw_text(32, 32, "HP: " + string(hp) + "/" + string(max_hp));
-draw_text(32, 48, "STAMINA: " + string(stamina) + "/" + string(max_stamina));
+//draw_text(32, 16, "LEVEL: " + string(level));
+//draw_text(32, 32, "HP: " + string(hp) + "/" + string(max_hp));
+//draw_text(32, 48, "STAMINA: " + string(stamina) + "/" + string(max_stamina));
+if (instance_exists(obj_hero)) {
+    with(obj_hero) {
+        draw_text(32, 16, "X, Y: " + string(x) + ", " + string (y));
+        draw_text(32, 32, "CELL_X, CELL_Y: " + string(cell_x) + ", " + string(cell_y));
+        draw_text(32, 48, "ALARM[0]: " + string(alarm[0]) );
+        draw_text(32, 64, "FACE: " + string(face));
+    }
+}
 
 if (!is_undefined(loot)) {
-    draw_text(32, 64, "Loot:");
+//    draw_text(32, 64, "Loot:");
     for (var i = 0; i &lt; ds_grid_height(loot); i++) {
         var num_loot = loot[# 1, i];
         var loot_plural = 's';

@@ -16,7 +16,7 @@ if (obj_input.xaxis == 0 && obj_input.yaxis == 0) {
     
     //control sprite
     image_speed = walk_anim_speed;
-    scr_get_face(dir);
+    face = scr_get_face(dir);
 }
 
 // Get hspd and vspd

@@ -24,7 +24,9 @@ with (level) {
     var cy = height / 2;
     
     //Create Hero object
-    instance_create(cx * CELL_WIDTH + (CELL_WIDTH / 2), cy * CELL_HEIGHT + (CELL_HEIGHT / 2), obj_hero);
+    var hero = instance_create(cx * CELL_WIDTH + (CELL_WIDTH / 2), cy * CELL_HEIGHT + (CELL_HEIGHT / 2), obj_hero);
+    hero.cell_x = cx;
+    hero.cell_y = cy;
     
     //Controller Direction
     var cdir = irandom(3);

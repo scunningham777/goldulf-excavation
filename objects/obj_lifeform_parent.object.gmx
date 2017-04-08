@@ -29,6 +29,13 @@
 //phy_fixed_rotation = true;
 
 action_queue = ds_queue_create();
+cur_action = noone;
+is_action_inited = false;
+cell_x = -1;
+cell_y = -1;
+target_cell_x = cell_x;
+target_cell_y = cell_y;
+
 hp = 3;
 expr_value = 1;
 damage_color1 = c_red;

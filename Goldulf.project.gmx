@@ -14,7 +14,7 @@
   </sounds>
   <sprites name="sprites">
     <sprite>sprites\spr_wall</sprite>
-    <sprites name="player">
+    <sprites name="hero">
       <sprite>sprites\spr_player_walk_left</sprite>
       <sprite>sprites\spr_player_walk_up</sprite>
       <sprite>sprites\spr_player_walk_right</sprite>
@@ -59,18 +59,27 @@
     <background>background\bg_death</background>
     <background>background\bg_floor</background>
     <background>background\bg_wall</background>
+    <background>background\background4</background>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
-    <scripts name="player_scripts">
+    <scripts name="hero_scripts">
       <script>scripts\scr_grid_move_state.gml</script>
-      <script>scripts\scr_idle_state.gml</script>
+      <script>scripts\scr_hero_idle_state.gml</script>
+      <script>scripts\scr_action_completed.gml</script>
+      <script>scripts\scr_turn_to_face_action.gml</script>
+      <script>scripts\scr_turn_up.gml</script>
+      <script>scripts\scr_turn_right.gml</script>
+      <script>scripts\scr_turn_down.gml</script>
+      <script>scripts\scr_turn_left.gml</script>
+      <script>scripts\scr_snap_location_to_grid.gml</script>
       <scripts name="tutorial">
         <script>scripts\scr_tut_attack_state.gml</script>
         <script>scripts\scr_tut_dash_state.gml</script>
         <script>scripts\scr_tut_move_state.gml</script>
         <script>scripts\scr_tut_swap_weapon.gml</script>
       </scripts>
+      <script>scripts\scr_cannot_move_state.gml</script>
     </scripts>
     <scripts name="enemy_scripts">
       <script>scripts\scr_enemy_idle_state.gml</script>
@@ -109,6 +118,7 @@
     </scripts>
     <script>scripts\scr_generate_level.gml</script>
     <script>scripts\scr_grid_move.gml</script>
+    <script>scripts\scr_tut_grid_place_meeting.gml</script>
     <script>scripts\scr_grid_place_meeting.gml</script>
   </scripts>
   <objects name="objects">

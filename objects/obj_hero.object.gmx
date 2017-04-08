@@ -31,6 +31,7 @@ if (instance_number(obj_hero) &gt; 1) {
     instance_destroy();
 }
 event_inherited();
+cur_action = scr_hero_idle_state;
 expr_value = 0;
 spd = 3;
 hspd = 0;
@@ -41,7 +42,7 @@ len = 0;
 dir = 90;
 walk_anim_speed = 0.15;
 //state = scr_tut_move_state;
-state = scr_grid_move_state;
+state = scr_hero_idle_state;
 image_speed = 0;
 face = DOWN;
 movement = MOVE;
@@ -117,8 +118,10 @@ transition.next_room = rm_death;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>// alarm for dash state
-state = scr_tut_move_state;
+            <string>/// actually taking this over for the action queue
+
+// alarm for dash state
+//state = scr_tut_move_state;
 </string>
           </argument>
         </arguments>
@@ -143,7 +146,7 @@ state = scr_tut_move_state;
             <kind>1</kind>
             <string>///Move player
 depth = -y;
-script_execute(state);
+script_execute(cur_action);
 
 //set sprite
 sprite_index = sprite[face, movement];
