@@ -8,7 +8,7 @@
   <isometric>0</isometric>
   <speed>30</speed>
   <persistent>-1</persistent>
-  <colour>12632256</colour>
+  <colour>1447738</colour>
   <showcolour>-1</showcolour>
   <code>///create random stuff
 randomize();
