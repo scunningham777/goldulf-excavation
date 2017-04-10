@@ -64,14 +64,9 @@
   <paths name="paths"/>
   <scripts name="scripts">
     <scripts name="hero_scripts">
-      <script>scripts\scr_grid_move_state.gml</script>
       <script>scripts\scr_hero_idle_state.gml</script>
       <script>scripts\scr_action_completed.gml</script>
       <script>scripts\scr_turn_to_face_action.gml</script>
-      <script>scripts\scr_turn_up.gml</script>
-      <script>scripts\scr_turn_right.gml</script>
-      <script>scripts\scr_turn_down.gml</script>
-      <script>scripts\scr_turn_left.gml</script>
       <script>scripts\scr_snap_location_to_grid.gml</script>
       <scripts name="tutorial">
         <script>scripts\scr_tut_attack_state.gml</script>
@@ -79,7 +74,14 @@
         <script>scripts\scr_tut_move_state.gml</script>
         <script>scripts\scr_tut_swap_weapon.gml</script>
       </scripts>
-      <script>scripts\scr_cannot_move_state.gml</script>
+      <scripts name="action scripts">
+        <script>scripts\scr_grid_move_state.gml</script>
+        <script>scripts\scr_turn_up.gml</script>
+        <script>scripts\scr_turn_right.gml</script>
+        <script>scripts\scr_turn_down.gml</script>
+        <script>scripts\scr_turn_left.gml</script>
+        <script>scripts\scr_cannot_move_state.gml</script>
+      </scripts>
     </scripts>
     <scripts name="enemy_scripts">
       <script>scripts\scr_enemy_idle_state.gml</script>
@@ -109,6 +111,7 @@
     </scripts>
     <scripts name="initialization_scripts">
       <script>scripts\scr_init_item_stats.gml</script>
+      <script>scripts\scr_init_hero_actions.gml</script>
     </scripts>
     <scripts name="menu_scripts">
       <script>scripts\scr_menu_pause_handle_selection.gml</script>

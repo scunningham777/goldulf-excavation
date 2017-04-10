@@ -32,6 +32,7 @@ if (instance_number(obj_hero) &gt; 1) {
 }
 event_inherited();
 cur_action = scr_hero_idle_state;
+cur_action_id = -1;
 expr_value = 0;
 spd = 3;
 hspd = 0;
@@ -42,7 +43,6 @@ len = 0;
 dir = 90;
 walk_anim_speed = 0.15;
 //state = scr_tut_move_state;
-state = scr_hero_idle_state;
 image_speed = 0;
 face = DOWN;
 movement = MOVE;

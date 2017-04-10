@@ -248,6 +248,8 @@ if (room != rm_pause) {
             <kind>1</kind>
             <string>///Draw the stats
 // only draw background if not paused
+exit;
+
 if (room != rm_pause) {
     draw_set_alpha(.4);
     var bg_width;

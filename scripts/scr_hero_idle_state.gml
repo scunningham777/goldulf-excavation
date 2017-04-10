@@ -5,7 +5,8 @@ image_index = 1;
 
 //check if there's a task in the queue
 if (!ds_queue_empty(action_queue)) {
-    cur_action = ds_queue_dequeue(action_queue);
+    cur_action_id = ds_queue_dequeue(action_queue);
+    cur_action = g_hero_actions[# 1, cur_action_id];
 }
 
 //else check if the player is pressing a move key
@@ -17,20 +18,20 @@ else if (obj_input.xaxis != 0 || obj_input.yaxis != 0) {
         var turn_action;
         switch(new_face) {
             case UP:
-                turn_action = scr_turn_up;
+                turn_action = 1;        //scr_turn_up
                 break;
             case RIGHT:
-                turn_action = scr_turn_right;
+                turn_action = 2;        //scr_turn_right
                 break;
             case DOWN:
-                turn_action = scr_turn_down;
+                turn_action = 3;        //scr_turn_down
                 break;
             case LEFT:
-                turn_action = scr_turn_left;
+                turn_action = 4;        //scr_turn_left
                 break;
         }   
         ds_queue_enqueue(action_queue, turn_action);
     }
-    ds_queue_enqueue(action_queue, scr_grid_move_state);
+    ds_queue_enqueue(action_queue, 0);      //scr_grid_move_state
 }
 //else do nothing...

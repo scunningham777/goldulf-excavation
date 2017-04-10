@@ -24,7 +24,7 @@ if (!is_action_inited) {
     //check for collisions and switch to "cannot_move_state" if there is one
     if (scr_grid_place_meeting(target_cell_x, target_cell_y)) {
         cur_action = scr_cannot_move_state;
-        return 0;
+        exit;
     }   
     
     alarm[0] = duration;

@@ -30,6 +30,7 @@
 
 action_queue = ds_queue_create();
 cur_action = noone;
+cur_action_id = -1;
 is_action_inited = false;
 cell_x = -1;
 cell_y = -1;
