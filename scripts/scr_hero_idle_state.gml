@@ -4,8 +4,9 @@ image_speed = 0;
 image_index = 1;
 
 //check if there's a task in the queue
-if (!ds_queue_empty(action_queue)) {
-    cur_action_id = ds_queue_dequeue(action_queue);
+if (!ds_list_empty(action_queue)) {
+    cur_action_id = action_queue[| 0];
+    ds_list_delete(action_queue, 0);
     cur_action = g_hero_actions[# 1, cur_action_id];
 }
 
@@ -30,8 +31,8 @@ else if (obj_input.xaxis != 0 || obj_input.yaxis != 0) {
                 turn_action = 4;        //scr_turn_left
                 break;
         }   
-        ds_queue_enqueue(action_queue, turn_action);
+        ds_list_add(action_queue, turn_action);
     }
-    ds_queue_enqueue(action_queue, 0);      //scr_grid_move_state
+    ds_list_add(action_queue, 0);      //scr_grid_move_state
 }
 //else do nothing...

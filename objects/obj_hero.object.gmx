@@ -295,6 +295,38 @@ persistent = true;
         </arguments>
       </action>
     </event>
+    <event eventtype="8" enumb="64">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Draw action queue
+draw_set_color(c_white);
+if (ds_exists(action_queue, ds_type_list)) {
+    if (cur_action_id != -1) {
+        draw_text(32, display_get_gui_height() - 32, "Current Action: " + g_hero_actions[# 0, cur_action_id]);
+    }
+    for (var i = 0; i &lt; ds_list_size(action_queue); i++) {
+        draw_text(32, display_get_gui_height() - (48 + 16 * i), g_hero_actions[# 0, action_queue[| i]]);
+    }
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
   </events>
   <PhysicsObject>0</PhysicsObject>
   <PhysicsObjectSensor>0</PhysicsObjectSensor>
